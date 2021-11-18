@@ -55,9 +55,10 @@
 </div>
 
 
+
 <!--        Search for Coffee Card-->
 
-<div class="card mt-3 mb-3" style="width: 30rem;">
+<div class="card mt-3 mb-3 float-right"  style="width: 30rem;">
     <div class="card-body">
 
 
@@ -79,7 +80,11 @@
         <div class="form-group">
             <label for="createCoffee"></label>
             <h6 class="card-subtitle mb-2 text-muted">Search coffee by name</h6>
-            <input type="text" class="form-control" id="createCoffee">
+
+            <!--2nd Search-->
+            <input id="search" autofocus placeholder="search" class="form-control" type="text" autocomplete="off" name="search"
+            />
+<div class="list-group" id="list"></div>
         </div>
 
         <!--            Submit button for Search Coffee Card-->
@@ -94,35 +99,35 @@
 </div>
 
 
-<!--        Name Coffee Card-->
+<!--&lt;!&ndash;        Name Coffee Card&ndash;&gt;-->
 
-<div class="card mt-3 mb-3" style="width: 30rem;">
-    <div class="card-body">
-        <h5 class="card-title">Add Coffee to Menu</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Select roast</h6>
-        <!--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-        <div class="input-group mb-3">
-            <select class="custom-select" id="inputGroupSelect01">
-                <option>Light</option>
-                <option>Medium</option>
-                <option>Dark</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="addCoffee"></label>
-            <h6 class="card-subtitle mb-2 text-muted">Name of Coffee</h6>
-            <input type="text" class="form-control" id="addCoffee">
-            <small class="form-text text-muted">Go ahead, try it!</small>
-        </div>
+<!--<div class="card mt-3 mb-3" style="width: 30rem;">-->
+<!--    <div class="card-body">-->
+<!--        <h5 class="card-title">Add Coffee to Menu</h5>-->
+<!--        <h6 class="card-subtitle mb-2 text-muted">Select roast</h6>-->
+<!--        &lt;!&ndash;                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>&ndash;&gt;-->
+<!--        <div class="input-group mb-3">-->
+<!--            <select class="custom-select" id="inputGroupSelect01">-->
+<!--                <option>Light</option>-->
+<!--                <option>Medium</option>-->
+<!--                <option>Dark</option>-->
+<!--            </select>-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="addCoffee"></label>-->
+<!--            <h6 class="card-subtitle mb-2 text-muted">Name of Coffee</h6>-->
+<!--            <input type="text" class="form-control" id="addCoffee">-->
+<!--            <small class="form-text text-muted">Go ahead, try it!</small>-->
+<!--        </div>-->
 
-        <!--            Submit button for Add Coffee Card-->
+<!--        &lt;!&ndash;            Submit button for Add Coffee Card&ndash;&gt;-->
 
-        <div>
-            <input id="submit" type="submit"/>
-        </div>
+<!--        <div>-->
+<!--            <input id="submit" type="submit"/>-->
+<!--        </div>-->
 
-    </div>
-</div>
+<!--    </div>-->
+<!--</div>-->
 
 
 <!--All Coffee Information -->
