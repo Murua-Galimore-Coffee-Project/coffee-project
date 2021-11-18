@@ -37,6 +37,7 @@ h1 {
 .card {
     background-color: #A49393;
     color: antiquewhite;
+    margin-right: 10px
 }
 
 .Coffee-Sub1 {
@@ -49,3 +50,15 @@ h1 {
 
 
 
+/*#search{*/
+/*    width: 400px;*/
+/*    margin-left: 700px;*/
+/*}*/
+
+
+/*Targets and sizes search results for coffee*/
+li {
+    color: #6e777e;
+    height: auto;
+    width: 150px;
+}
