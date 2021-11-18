@@ -57,6 +57,7 @@ div.innerHTML = renderCoffees(coffees);
 submitButton.addEventListener('click', updateCoffees);
 
 
+
 //For search bar functionality
 let list = document.getElementById('list');
 
@@ -111,3 +112,4 @@ searchInput.addEventListener('input', (event) =>{
         clearList();
     }
 })
+
