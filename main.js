@@ -1,5 +1,8 @@
 "use strict"
 
+//function that creates html elements with information from the array of objects, array of objects is now longer in a ul, but in a div
+// nested within the parent div is: each coffee id is in a hidden child div, each coffee name is in an h3, each coffee roast is in a paragraph.
+
 function renderCoffee(coffee) {
     var html = '<div id="list" class="coffee">';
     html += '<div hidden>' + coffee.id + '</div>';
@@ -10,6 +13,8 @@ function renderCoffee(coffee) {
     return html;
 }
 
+//this function puts the coffees in ascending ID order
+
 function renderCoffees(coffees) {
     var html = '';
     for(var i = 0; i < coffees.length; i++) {
@@ -18,6 +23,9 @@ function renderCoffees(coffees) {
     return html;
 }
 
+
+// this function updates the coffees on the html page when using the drop down menu
+
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
@@ -25,10 +33,14 @@ function updateCoffees(e) {
     coffees.forEach(function(coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
+        } else if (selectedRoast === "Show All") {
+            filteredCoffees.push(coffee);
         }
     });
     div.innerHTML = renderCoffees(filteredCoffees);
 }
+
+//array of objects (includes coffees by id, name and roast)
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
@@ -54,62 +66,27 @@ var roastSelection = document.querySelector('#roast-selection');
 
 div.innerHTML = renderCoffees(coffees);
 
-submitButton.addEventListener('click', updateCoffees);
+roastSelection.addEventListener('change', updateCoffees);
 
 
 
 //For search bar functionality
-let list = document.getElementById('list');
 
-function setlist(group){
-    clearlist();
-    for(var coffee of group){
-        let item = document.createElement('li')
-        item.classList.add('list-group-item');
-        var text = document.createTextNode(coffee.name);
-        item.appendChild(text);
-        list.appendChild(item)
-    }
-    if(group.length === 0){
-        setNoResults();
-    }
-}
-function clearlist(){
-    while(list.firstChild){
-        list.removeChild(list.firstChild);
-    }
+var searchCoffees = document.getElementById("search");
 
-}
-function setNoResults(){
-    let item = document.createElement('li')
-    item.classList.add('list-group-item');
-    let text = document.createTextNode("No results found");
-    item.appendChild(text);
-    list.appendChild(item)
+searchCoffees.addEventListener('keyup', function() {
 
-}
-function getRelevancy(value, searchTerm){
-    if (value === searchTerm){
-        return 2;
-    } else if (value.startsWith(searchTerm)) {
-        return 1;
-    } else{
-        return 0;
-    }
+    var userInput = searchCoffees.value.toLowerCase();
+    var filteredCoffees = [];
 
-}
-let searchInput = document.getElementById('search');
-searchInput.addEventListener('input', (event) =>{
-    let value = event.target.value;
-    if(value && value.trim().length > 0){
-        value = value.trim().toLowerCase();
-        setlist(coffees.filter(coffee => {
-            return coffee.name.includes(value);
-        }).sort((coffeeA, coffeeB) => {
-            return getRelevancy(coffeeB.name, value) - getRelevancy(coffeeA.name, value);
-        }))
-    }else {
-        clearList();
-    }
+    coffees.forEach(function (coffee) {
+        if (coffee.name.toLowerCase().includes(userInput)) {
+            filteredCoffees.push(coffee);
+            console.log(filteredCoffees);
+        }
+
+    })
+    div.innerHTML = renderCoffees(filteredCoffees);
 })
+
 
